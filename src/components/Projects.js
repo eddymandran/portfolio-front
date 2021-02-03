@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 
 export default function Projects() {
@@ -8,15 +9,23 @@ export default function Projects() {
   const [projects, setProjects] = useState([]);
   
   useEffect(() => {
+    const source = axios.CancelToken.source();
     axios
-      .get("http://localhost:5000/projects")
+      .get("http://localhost:5000/projects", {
+        cancelToken: source.token,
+      })
       .then((response) => {
         setProjects(response.data);
         console.log(response.data)
       })
-      .catch(console.error);
+      .catch((err) => {
+        if (axios.isCancel(err)) {
+          console.log('Request canceled', err.message);
+        } else {
+          console.log('Error:', err.message);
+        }
+      })
   }, []);
-
 
 
   return <div>
@@ -24,11 +33,17 @@ export default function Projects() {
      {projects.map((project)=> {
       return (
       <div key={project.id} className="Project_Row">
-        <p>{project.title}</p>
-        <p>{project.description}</p>
+        <p> Name :{project.title}</p>
+        <p>Description : {project.description}</p>
         <img src={project.main_picture} alt={project.title}/>
-        <p>{project.url_github}</p>
+        <a href={project.url_github}>Lien vers le dépot github</a>
         <p>{project.techno_id}</p>
+        <Link to={`/project/${project.id}`}>
+        <button type="button">
+              more details
+            </button>
+            </Link>
+
       </div>)
     })} 
     </div>;
