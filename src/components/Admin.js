@@ -7,6 +7,7 @@ export default function Admin() {
   const { register, handleSubmit } = useForm();
 
   const [projects, setProjects] = useState([]);
+  const [techno, setTechno] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -17,6 +18,25 @@ export default function Admin() {
       })
       .then((response) => {
         setProjects(response.data);
+        console.log(response.data);
+      })
+      .catch((err) => {
+        if (axios.isCancel(err)) {
+          console.log("Request canceled", err.message);
+        } else {
+          console.log("Error:", err.message);
+        }
+      });
+  }, [isLoading]);
+
+  useEffect(() => {
+    const source = axios.CancelToken.source();
+    axios
+      .get("http://localhost:5000/technos", {
+        cancelToken: source.token,
+      })
+      .then((response) => {
+        setTechno(response.data);
         console.log(response.data);
       })
       .catch((err) => {
@@ -45,7 +65,7 @@ export default function Admin() {
         }
       });
   };
-  
+
   const onDelete = (id) => {
     const source = axios.CancelToken.source();
     axios
@@ -66,8 +86,13 @@ export default function Admin() {
     <div className="administration">
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input name="title" ref={register} placeholder="title" required/>
-          <input name="description" ref={register} placeholder="description" required />
+          <input name="title" ref={register} placeholder="title" required />
+          <input
+            name="description"
+            ref={register}
+            placeholder="description"
+            required
+          />
           <input
             name="main_picture"
             ref={register}
@@ -83,8 +108,18 @@ export default function Admin() {
             ref={register}
             placeholder="third picture"
           />
-          <input name="url_github" ref={register} placeholder="github" required />
-          <input name="techno_id" ref={register} placeholder="techno" required />
+          <input
+            name="url_github"
+            ref={register}
+            placeholder="github"
+            required
+          />
+          <select name="techno_id" ref={register} required>
+            <option value="">--Please choose an option--</option>
+            {techno.map((technology)=>(
+              <option key={technology.id} value={technology.id}>{technology.name}</option>
+            ))}
+          </select>
           <input type="submit" />
         </form>
       </div>

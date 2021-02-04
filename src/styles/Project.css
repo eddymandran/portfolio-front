@@ -1,0 +1,14 @@
+.Project_Row{
+    margin: 20px;
+    padding: 10px;
+    background-color: #e6e6e6;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 25px;
+}
+
+.Project_Row img{
+    width: 250px;
+}
+p{
+    padding: 10px;
+}
