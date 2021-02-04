@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import "../styles/Navbar.css"
 
 export default function NavBar() {
   return <div className="navbar">
-  <div className="logoNavbar" />
   <ul>
     <li>
       <Link to="/">Home</Link>
@@ -16,9 +16,6 @@ export default function NavBar() {
     </li>
     <li>
       <Link to="/contact">Contact</Link>
-    </li>
-    <li>
-      <Link to="/admin">Admin</Link>
     </li>
   </ul>
 </div>

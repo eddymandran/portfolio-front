@@ -25,14 +25,18 @@ export default function ProjectDetails(props) {
           console.log('Error:', err.message);
         }
       })
-  }, []);
+  }, [id]);
 
 
-  return <div><p> Name :{project[0].title}</p>
-        <p>Description : {project[0].description}</p>
-        <img src={project[0].main_picture} alt={project[0].title}/>
-        <img src={project[0].secondary_picture} alt={project[0].title}/>
-        <img src={project[0].third_picture} alt={project[0].title}/>
-        <a href={project[0].url_github}>Lien vers le dépot github</a>
-        <p>{project[0].techno_id}</p></div>;
+  return <div className="projectDetails">
+    {project.map((project)=>(
+     <div> <p> Name :{project.title}</p>
+     <p>Description : {project.description}</p>
+     <img src={project.main_picture} alt={project.title}/>
+     <img src={project.secondary_picture} alt={project.title}/>
+     <img src={project.third_picture} alt={project.title}/>
+     <a href={project.url_github}>Lien vers le dépot github</a>
+     <p>{project.techno_id}</p></div>
+    ))}
+    </div>;
 }

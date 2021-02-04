@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import "../styles/Admin.css"
 
 export default function Admin() {
   const { register, handleSubmit } = useForm();
@@ -22,7 +23,9 @@ export default function Admin() {
   };
 
   return (
-    <div>
+    <div className="administration">
+
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <input name="title" ref={register} placeholder="title" />
         <input name="description" ref={register} placeholder="description" />

@@ -1,0 +1,17 @@
+.navbar {
+    background-color: rgba(141, 145, 150, 0.952);
+    
+}
+
+
+.navbar ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+}
