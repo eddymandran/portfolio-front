@@ -32,11 +32,12 @@ export default function ProjectDetails(props) {
     {project.map((project)=>(
      <div> <p> Name :{project.title}</p>
      <p>Description : {project.description}</p>
+     <p>Techno:{project.name}</p>
      <img src={project.main_picture} alt={project.title}/>
      <img src={project.secondary_picture} alt={project.title}/>
      <img src={project.third_picture} alt={project.title}/>
      <a href={project.url_github}>Lien vers le dépot github</a>
-     <p>{project.techno_id}</p></div>
+    </div>
     ))}
     </div>;
 }

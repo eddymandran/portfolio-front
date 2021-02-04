@@ -37,7 +37,7 @@ export default function Projects() {
         <p>Description : {project.description}</p>
         <img src={project.main_picture} alt={project.title}/>
         <a href={project.url_github}>Lien vers le dépot github</a>
-        <p>{project.techno_id}</p>
+        <p>Techno : {project.name}</p>
         <Link to={`/project/${project.id}`}>
         <button type="button">
               more details
