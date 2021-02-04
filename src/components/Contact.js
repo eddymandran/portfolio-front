@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import "../styles/Contact.css"
 
 export default function Contact() {
   const { register, handleSubmit } = useForm();
@@ -7,12 +8,12 @@ export default function Contact() {
     console.log(data);
     e.target.reset();
   };
-  return <div>
+  return <div className="contact">
     <div>
-  <p>Interested in collaborating ?</p>
-  <p>I’m always open to discussing product design work or partnership opportunities.</p>
+  <h2>Interested in collaborating ?</h2>
+  <p>I am always open to discussion regarding code improvement or partnership opportunities.</p>
     </div>
-    <div>
+    <div className="contactForm">
         <form onSubmit={handleSubmit(onSubmit)}>
           <input name="Firstname" ref={register} placeholder="Firstname" required/>
           <input name="Lastname" ref={register} placeholder="Lastname" />
