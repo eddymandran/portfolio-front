@@ -27,7 +27,7 @@ export default function Admin() {
           console.log("Error:", err.message);
         }
       });
-  }, [isLoading]);
+  }, [isLoading, projects]);
 
   useEffect(() => {
     const source = axios.CancelToken.source();

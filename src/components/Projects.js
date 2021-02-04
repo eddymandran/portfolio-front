@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../styles/Project.css";
+import { GitHub } from 'react-feather';
 
 
 export default function Projects() {
@@ -35,12 +36,14 @@ export default function Projects() {
           return (
             <div key={project.id} className="Project_Row">
               <p> <strong>Name : </strong><em>{project.title}</em></p>
-              <p><strong>Description : </strong><em>{project.description}</em></p>
+              
               <p>
                 <img src={project.main_picture} alt={project.title} />
               </p>
-              <a href={project.url_github}>Link to the github repo</a>
+              <p><strong>Description : </strong><em>{project.description}</em></p>
+              
               <p><strong>Technology used : </strong> <em>{project.techno_name}</em></p>
+              <p><a href={project.url_github}><GitHub/> Repo github</a></p>
               <Link to={`/project/${project.id}`}>
                 <button type="button">more details</button>
               </Link>

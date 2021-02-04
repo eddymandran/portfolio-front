@@ -28,3 +28,14 @@ padding: 10px;
   height: 50px;
   margin-bottom: 0;
 }
+
+@media screen and (min-width: 769px) {
+  .eddy{
+  height: 250px;
+  width: 250px;
+  }
+
+  .computers{
+    height: 200px;
+  }
+}

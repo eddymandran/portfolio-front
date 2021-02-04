@@ -16,3 +16,13 @@ p{
     padding: 10px;
 }
 
+@media screen and (min-width: 769px) {
+    .Project_Row{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3em;
+        height:300px;
+    }
+}
