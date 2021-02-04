@@ -12,7 +12,7 @@ import Admin from './components/Admin';
 
 function App() {
   return (
-    <div className="page">
+    <div className="App">
     <Router>
       <NavBar/>
       <Switch>

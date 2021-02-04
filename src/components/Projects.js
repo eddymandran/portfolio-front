@@ -15,8 +15,9 @@ export default function Projects() {
         cancelToken: source.token,
       })
       .then((response) => {
-        setProjects(response.data);
         console.log(response.data)
+        setProjects(response.data);
+        
       })
       .catch((err) => {
         if (axios.isCancel(err)) {
