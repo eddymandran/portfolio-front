@@ -1,0 +1,23 @@
+.aboutMe{
+    padding: 10px;
+}
+
+.resume{
+    margin: 10px;
+    text-align: center;
+}
+
+.resume ul li{
+    list-style: none;
+    margin-top: 15px;
+}
+
+.language{
+margin: 50px ;
+
+border-top: 1px solid #7510F7;
+padding: 15px;
+}
+.languageImg{
+    max-width: 100px;
+}

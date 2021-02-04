@@ -9,6 +9,10 @@ export default function Contact() {
   };
   return <div>
     <div>
+  <p>Interested in collaborating ?</p>
+  <p>I’m always open to discussing product design work or partnership opportunities.</p>
+    </div>
+    <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input name="Firstname" ref={register} placeholder="Firstname" required/>
           <input name="Lastname" ref={register} placeholder="Lastname" />
