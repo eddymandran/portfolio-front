@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { useToasts } from 'react-toast-notifications';
 import "../styles/Admin.css";
 
+
 export default function Admin() {
+  const { addToast } = useToasts();
   const { register, handleSubmit } = useForm();
 
   const [projects, setProjects] = useState([]);
   const [techno, setTechno] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isAdding, setIsAdding] = useState(false)
 
   useEffect(() => {
     const source = axios.CancelToken.source();
@@ -27,7 +31,7 @@ export default function Admin() {
           console.log("Error:", err.message);
         }
       });
-  }, [isLoading, projects]);
+  }, [isLoading, isAdding]);
 
   useEffect(() => {
     const source = axios.CancelToken.source();
@@ -55,8 +59,13 @@ export default function Admin() {
       .post("http://localhost:5000/admin/projects", data, {
         cancelToken: source.token,
       })
-      .then(setIsLoading(true))
       .then(e.target.reset())
+      .then(setIsAdding(true))
+      .then(() => {
+        addToast('Project successfully added', {
+          appearance: 'success',
+          autoDismiss: true,
+        })})
       .catch((err) => {
         if (axios.isCancel(err)) {
           console.log("Request canceled", err.message);
@@ -73,6 +82,11 @@ export default function Admin() {
         cancelToken: source.token,
       })
       .then(setIsLoading(true))
+      .then(() => {
+        addToast('Project successfully deleted', {
+          appearance: 'success',
+          autoDismiss: true,
+        })})
       .catch((err) => {
         if (axios.isCancel(err)) {
           console.log("Request canceled", err.message);
@@ -129,8 +143,8 @@ export default function Admin() {
       <div className="deleteProject">
         <h2>Delete a project</h2>
         {projects.map((project) => (
-          <div>
-            <p key={project.id}>{project.title}</p>
+          <div key={project.id}>
+            <p>{project.title}</p>
             <button type="button" onClick={() => onDelete(project.id)}>
               delete
             </button>
