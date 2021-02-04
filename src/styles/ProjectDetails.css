@@ -1,4 +1,4 @@
-.Project_Row{
+.projectDetails{
     margin: 20px;
     padding: 10px;
     background-color: #e6e6e6;
@@ -11,4 +11,8 @@
 }
 p{
     padding: 10px;
+}
+
+a{
+    text-decoration: none;
 }

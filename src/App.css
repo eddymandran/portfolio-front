@@ -8,3 +8,23 @@
 .App {
   text-align: center;
 }
+
+button{
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 20px;
+  border: 1px solid #7510F7;
+  border-radius: 8px;
+  background: #3235ff;
+  font: normal normal bold 15px arial;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+button:hover {
+  border: 1px solid #1f21dc;
+  background: #7510F7;
+  color: #ffffff;
+  text-decoration: none;
+}

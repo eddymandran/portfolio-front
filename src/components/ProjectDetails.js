@@ -3,6 +3,7 @@ import axios from "axios";
 import "../styles/ProjectDetails.css"
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import { GitHub } from 'react-feather';
 
 export default function ProjectDetails(props) {
 
@@ -33,9 +34,7 @@ export default function ProjectDetails(props) {
 
   return <div className="projectDetails">
     {project.map((project)=>(
-    <div key={project.id}> <p> Name : {project.title}</p>
-    <p>Description : {project.description}</p>
-    <p>Techno : {project.name}</p>
+    <div key={project.id}> <p><strong>Name : </strong>{project.title}</p>
     <Carousel>
         <div>
         <img src={project.main_picture} alt={project.title}/>
@@ -47,7 +46,10 @@ export default function ProjectDetails(props) {
         <img src={project.third_picture} alt={project.title}/>
         </div>
     </Carousel>
-    <a href={project.url_github}>Lien vers le dépot github</a>
+    <p><em>{project.description}</em></p>
+    <p><strong>Technology used : </strong>{project.name}</p>
+    
+    <a href={project.url_github}> <GitHub/> Repo github</a>
     </div>
     ))}
     </div>;

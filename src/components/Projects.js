@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../styles/Project.css";
 
+
 export default function Projects() {
   const [projects, setProjects] = useState([]);
 
@@ -27,19 +28,19 @@ export default function Projects() {
 
   return (
     <div>
-      <h1>My projects</h1>
+      <h1 className="title">My Recent Work</h1>
       <p>You can see here all my projects</p>
       <div>
         {projects.map((project) => {
           return (
             <div key={project.id} className="Project_Row">
-              <p> Name :{project.title}</p>
-              <p>Description : {project.description}</p>
+              <p> <strong>Name : </strong><em>{project.title}</em></p>
+              <p><strong>Description : </strong><em>{project.description}</em></p>
               <p>
                 <img src={project.main_picture} alt={project.title} />
               </p>
               <a href={project.url_github}>Link to the github repo</a>
-              <p>Technology used : {project.techno_name}</p>
+              <p><strong>Technology used : </strong> <em>{project.techno_name}</em></p>
               <Link to={`/project/${project.id}`}>
                 <button type="button">more details</button>
               </Link>

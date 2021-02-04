@@ -10,8 +10,7 @@ import Git from "../images/Git.svg"
 export default function AboutMe() {
   return <div>
     <div>
-    <h2 align="center">  I'm learning to become a ReactJS/NodeJS Developer ~ Currently a wild
-        student @WildCodeSchool</h2>
+    <h2 align="center">  HI, I'm Eddy. Nice to meet you.</h2>
       <ul>
         <li>- 🌍 I’m from Lyon (FRANCE) </li>
         <li>- 🌱 I’m currently learning NodeJS,ExpressJS, VueJS, Symphony  </li>
