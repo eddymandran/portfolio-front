@@ -84,8 +84,11 @@ export default function Admin() {
 
   return (
     <div className="administration">
-      <div>
+      <h1>Administration</h1>
+      <div className="addProject">
+        <h2>Add a new project</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
+
           <input name="title" ref={register} placeholder="title" required />
           <input
             name="description"
@@ -123,7 +126,8 @@ export default function Admin() {
           <input type="submit" />
         </form>
       </div>
-      <div>
+      <div className="deleteProject">
+        <h2>Delete a project</h2>
         {projects.map((project) => (
           <div>
             <p key={project.id}>{project.title}</p>

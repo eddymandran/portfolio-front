@@ -46,7 +46,7 @@ export default function Projects() {
               </Link>
             </div>
           );
-        })}{" "}
+        })}
       </div>
     </div>
   );
